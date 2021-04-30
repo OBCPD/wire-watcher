@@ -1,5 +1,6 @@
 const store = {
-    avocado: 10
+    rooms: {
+    }
 }
 
 export default store

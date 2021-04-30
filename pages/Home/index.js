@@ -6,7 +6,6 @@ import { Text, View, Button } from "react-native";
 import store from "../../store"
 
 export default function Home() {
-
   return (
     <View>
       <Text>Home</Text>
