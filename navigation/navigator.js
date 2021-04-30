@@ -69,34 +69,39 @@ const TabNavigator = createMaterialBottomTabNavigator(
         tabBarLabel: "Home",
       },
     },
-    SuggestionsTab: {
-      screen: SuggestionsStack,
-      navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <Ionicons name="ios-menu" size={25} color={tabInfo.tintColor} />
-          );
-        },
-        tabBarLabel: "Suggestions",
-      },
-    },
     RegisterTab: {
       screen: RegisterStack,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
-            <Ionicons name="ios-menu" size={25} color={tabInfo.tintColor} />
+            <Ionicons name="ios-log-in" size={25} color={tabInfo.tintColor} />
           );
         },
         tabBarLabel: "Register",
       },
     },
+    SuggestionsTab: {
+      screen: SuggestionsStack,
+      navigationOptions: {
+        tabBarIcon: (tabInfo) => {
+          return (
+            <Ionicons
+              name="ios-information"
+              size={25}
+              color={tabInfo.tintColor}
+            />
+          );
+        },
+        tabBarLabel: "Suggestions",
+      },
+    },
+
     BudgetTab: {
       screen: BudgetStack,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
-            <Ionicons name="ios-menu" size={25} color={tabInfo.tintColor} />
+            <Ionicons name="ios-wallet" size={25} color={tabInfo.tintColor} />
           );
         },
         tabBarLabel: "Budget",
