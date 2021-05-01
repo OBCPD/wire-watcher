@@ -23,8 +23,6 @@ export default function Home(props) {
     setStatus(
       rooms.map((room) => {
         const deviceStatus = room.devices.map((device) => {
-          console.log(device)
-
           const maxHeat = device.heat.reduce((state, n) => {
             return Math.max(state, n)
           }, 0)
@@ -59,8 +57,6 @@ export default function Home(props) {
   function navigateToDevices(room) {
     props.navigation.navigate('Room', { room })
   }
-
-  // console.log(store.rooms)
 
   return (
     <View style={styles.container}>

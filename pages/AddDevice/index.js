@@ -3,7 +3,6 @@ import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import styles from "./styles"
-// import store from "../../store";
 
 import { StoreContext } from '../../store-context'
 
@@ -15,7 +14,7 @@ export default function AddDevice() {
 
   const [span, setSpan] = useState("");
 
-  const store = useContext(StoreContext)
+  const {registerDevice} = useContext(StoreContext)
 
   const inputRoomHandler = (value) => {
     setRoom(value);
@@ -72,21 +71,13 @@ export default function AddDevice() {
         style={styles.formButton}
         onPress={() => {
           if (room !== "" && name !== "" && parseInt(power, 10) !== 0 && parseInt(voltage, 10) !== 0) {
-            const foundRoomIndex = store.rooms.findIndex(
-              (room) => room.name === room
-            );
-            if (foundRoomIndex != -1) {
-              store.rooms[foundRoomIndex].devices.push({
-                name: name,
-                power: parseInt(power, 10),
-                voltage: parseInt(voltage, 10),
-              });
-            } else {
-              store.rooms.push({
-                name: room,
-                devices: [{ name: name, power: parseInt(power, 10), voltage: parseInt(voltage, 10) }],
-              });
-            }
+            registerDevice({
+              name: name,
+              room: room,
+              power: power,
+              voltage: voltage,
+              heat: [],
+            })
             setSpan("Succesfully submitted!");
           } else {
             setSpan("There are mandatory fields empty!");

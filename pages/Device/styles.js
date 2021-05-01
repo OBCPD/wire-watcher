@@ -11,5 +11,11 @@ export default StyleSheet.create({
         textAlign: 'center',
         textTransform: 'capitalize',
         fontSize: 32,
+        marginBottom: 12,
+    },
+
+    grapicTitle: {
+        fontSize: 16,
+        paddingLeft: 12,
     },
 })
