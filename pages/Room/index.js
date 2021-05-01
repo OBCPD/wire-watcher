@@ -1,8 +1,38 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, FlatList, TouchableOpacity } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-// import styles from './styles'
+import styles from './styles'
 
-export default function Room() {
-  return <View></View>;
+export default function Room(props) {
+  const room = props.navigation.getParam("room");
+
+  function navigateToDevice(device) {
+    props.navigation.navigate('Device', { device })
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{room.name}</Text>
+      <FlatList
+        style={styles.deviceList}
+        data={room.devices}
+        keyExtractor={(device) => String(room.devices)}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item: device }) => (
+          <TouchableOpacity
+            style={styles.deviceButton}
+            onPress={() => navigateToDevice(device)}
+          >
+            <MaterialCommunityIcons style={styles.buttonIcon} name='clipboard-check-multiple' size={24} />
+            <View>
+              <Text style={styles.deviceTitle}>{device.name}</Text>
+              <Text>Click here to see more...</Text>
+            </View>
+            
+          </TouchableOpacity>
+        )}
+      />
+    </View>
+  );
 }

@@ -28,6 +28,7 @@ export default function Register(props) {
         <Text>Room: {data.item.name}</Text>
         <FlatList
           data={data.item.devices}
+          keyExtractor={(device) => device.name}
           renderItem={renderDevices}
         ></FlatList>
       </View>
@@ -53,7 +54,7 @@ export default function Register(props) {
           }}
         />
       </View>
-      <FlatList data={store.rooms} renderItem={renderRooms}></FlatList>
+      <FlatList data={store.rooms} keyExtractor={(room) => String(room.name)} renderItem={renderRooms}></FlatList>
     </View>
   );
 }

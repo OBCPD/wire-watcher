@@ -6,8 +6,8 @@ import store from "../../store";
 // import styles from './styles'
 
 export default function Budget() {
-  const [sockets, setSockets] = useState(0);
-  const [devices, setDevices] = useState(0);
+  const [sockets, setSockets] = useState("");
+  const [devices, setDevices] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -69,7 +69,7 @@ export default function Budget() {
 
       <TouchableOpacity
         onPress={() => {
-          if (sockets != 0 && devices != 0 && name != "" && email != "") {
+          if (parseInt(sockets, 10) !== 0 && parseInt(devices, 10) !== 0 && name !== "" && email !== "") {
             store.budgetRegisters.push({
               name: name,
               email: email,

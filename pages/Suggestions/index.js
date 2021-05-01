@@ -12,6 +12,7 @@ export default function Suggestions() {
   Animated.timing(btnHeight, {
     toValue: firstClicked ? 500 : 1,
     duration: 1000,
+    useNativeDriver: false
   }).start();
 
   return (
@@ -30,7 +31,7 @@ export default function Suggestions() {
       >
         <View style={styles.buttonTitleContainer}>
           <Text>Preventing home fire</Text>
-          <Ionicons name="ios-search" size={25} color="black" />
+          <Ionicons name="ios-search" size={16} color="black" />
         </View>
         <Animated.View style={{ height: btnHeight }}>
           <Text style={styles.text1}>
@@ -52,14 +53,14 @@ export default function Suggestions() {
       <TouchableOpacity style={styles.button}>
         <View style={styles.buttonTitleContainer}>
           <Text>What to do if a home fire starts?</Text>
-          <Ionicons name="ios-search" size={25} color="black" />
+          <Ionicons name="ios-search" size={16} color="black" />
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
         <View style={styles.buttonTitleContainer}>
           <Text>Avoiding overcharge </Text>
-          <Ionicons name="ios-search" size={25} color="black" />
+          <Ionicons name="ios-search" size={16} color="black" />
         </View>
       </TouchableOpacity>
     </View>
