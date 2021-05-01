@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import styles from "./styles"
+import styles from "./styles";
 
-import { StoreContext } from '../../store-context'
+import { StoreContext } from "../../store-context";
 
 export default function AddDevice() {
   const [room, setRoom] = useState("");
@@ -14,7 +14,7 @@ export default function AddDevice() {
 
   const [span, setSpan] = useState("");
 
-  const {registerDevice} = useContext(StoreContext)
+  const { registerDevice } = useContext(StoreContext);
 
   const inputRoomHandler = (value) => {
     setRoom(value);
@@ -39,7 +39,9 @@ export default function AddDevice() {
         onChangeText={(text) => inputRoomHandler(text.toLowerCase())}
         value={room}
       />
-      <Text style={styles.formLabel}>Please type here the name of your device:</Text>
+      <Text style={styles.formLabel}>
+        Please type here the name of your device:
+      </Text>
       <TextInput
         style={styles.formInput}
         placeholder="name here"
@@ -70,24 +72,30 @@ export default function AddDevice() {
       <TouchableOpacity
         style={styles.formButton}
         onPress={() => {
-          if (room !== "" && name !== "" && parseInt(power, 10) !== 0 && parseInt(voltage, 10) !== 0) {
+          if (
+            room !== "" &&
+            name !== "" &&
+            parseInt(power, 10) !== 0 &&
+            parseInt(voltage, 10) !== 0
+          ) {
             registerDevice({
               name: name,
               room: room,
               power: power,
               voltage: voltage,
               heat: [],
-            })
+            });
+
             setSpan("Succesfully submitted!");
           } else {
             setSpan("There are mandatory fields empty!");
           }
         }}
       >
-        <MaterialCommunityIcons name='arrow-collapse-up' size={20} />
+        <MaterialCommunityIcons name="arrow-collapse-up" size={20} />
         <Text style={styles.formButtonText}> Submit</Text>
       </TouchableOpacity>
-      <Text>{span}</Text>
+      <Text style={{ textAlign: "center", marginTop: 10 }}>{span}</Text>
     </View>
   );
 }
