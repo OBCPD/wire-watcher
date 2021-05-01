@@ -7,12 +7,18 @@ export default StyleSheet.create({
         paddingTop: 12,
     },
 
+    title: {
+        textAlign: 'center',
+        fontSize: 32,
+    },
+
     roomList: {
         marginTop: 8,
     },
 
     roomButton: {
         padding: 6,
+        marginBottom: 12,
         backgroundColor: '#0016a83a',
         borderRadius: 4,
         display: 'flex',

@@ -6,13 +6,26 @@ export default StyleSheet.create({
     paddingHorizontal: 12,
     paddingTop: 12,
   },
-  button: {
-    padding: 10,
-    borderColor: "#0016a8",
-    borderWidth: 2,
-    borderRadius: 10,
+
+  info: {
+    marginBottom: 12,
   },
+  
+  button: {
+    padding: 16,
+    marginBottom: 12,
+    backgroundColor: '#0016a83a',
+    borderRadius: 4,
+  },
+
   buttonTitleContainer: {
-    flexDirection: "row",
+    display: 'flex',
+    flexWrap: 'nowrap',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+
+  buttonTitle: {
+    fontSize: 16,
   },
 });

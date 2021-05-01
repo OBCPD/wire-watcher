@@ -1,20 +1,19 @@
-import React from "react";
-import { Text, View, FlatList } from "react-native";
+import React, { useContext } from "react";
+import { Text, View, FlatList, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import styles from "./styles";
+import styles from "./styles"
 
-import store from "../../store";
 import RegisteredDevice from "../../components/RegisteredDevice/index";
+import { StoreContext } from '../../store-context'
 
 export default function Register(props) {
+  const {rooms} = useContext(StoreContext)
   const renderDevices = (data) => {
-    console.log("test");
     return (
       <View>
         <RegisteredDevice
-          device={data.item.device}
-          number={data.item.number}
+          name={data.item.name}
           power={data.item.power}
           voltage={data.item.voltage}
         />
@@ -25,10 +24,10 @@ export default function Register(props) {
   const renderRooms = (data) => {
     return (
       <View>
-        <Text>Room: {data.item.name}</Text>
+        <Text style={styles.deviceListTitle}>{data.item.name}</Text>
         <FlatList
           data={data.item.devices}
-          keyExtractor={(device) => device.name}
+          keyExtractor={() => String(Math.random())}
           renderItem={renderDevices}
         ></FlatList>
       </View>
@@ -36,25 +35,31 @@ export default function Register(props) {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>
         Here you will be able to register what electronic devices are commonly
         used in each socket to simulate if a fire due to overcharge may happen.
       </Text>
-      <View>
-        <Text>Click here to add devices</Text>
-        <Ionicons
-          name="add-circle-outline"
-          size={25}
-          color="black"
+
+      <View style={styles.deviceListContainer}>
+        <Text style={styles.registerListTitle}>Registered Devices</Text>
+        <TouchableOpacity
+          style={styles.addButton}
           onPress={() => {
-            props.navigation.navigate({
-              routeName: "AddDevice",
-            });
+              props.navigation.navigate({
+                routeName: "AddDevice",
+              });
           }}
-        />
+        >
+          <Ionicons
+            name="add-circle-outline"
+            size={36}
+            color="#0016a8"
+            style={styles.addButtonIcon}
+          />
+        </TouchableOpacity>
       </View>
-      <FlatList data={store.rooms} keyExtractor={(room) => String(room.name)} renderItem={renderRooms}></FlatList>
+      <FlatList data={rooms} keyExtractor={() => String(Math.random())} renderItem={renderRooms}></FlatList>
     </View>
   );
 }

@@ -19,6 +19,7 @@ export default StyleSheet.create({
 
     deviceButton: {
         padding: 6,
+        marginBottom: 12,
         backgroundColor: '#0016a83a',
         borderRadius: 4,
         display: 'flex',

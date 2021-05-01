@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Home from "../pages/Home/index";
 import Room from "../pages/Room/index";
@@ -76,7 +76,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
-            <Ionicons name="ios-log-in" size={25} color={tabInfo.tintColor} />
+            <MaterialCommunityIcons name="arrow-collapse-up" size={25} color={tabInfo.tintColor} />
           );
         },
         tabBarLabel: "Register",
@@ -87,11 +87,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
-            <Ionicons
-              name="ios-information"
-              size={25}
-              color={tabInfo.tintColor}
-            />
+            <MaterialCommunityIcons name="information" size={25} color={tabInfo.tintColor} />
           );
         },
         tabBarLabel: "Suggestions",

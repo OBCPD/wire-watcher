@@ -13,11 +13,12 @@ export default function Room(props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{room.name}</Text>
+      <Text style={styles.title}>{ room.name }</Text>
+      <Text>Devices installed on { room.name }.</Text>
       <FlatList
         style={styles.deviceList}
         data={room.devices}
-        keyExtractor={(device) => String(room.devices)}
+        keyExtractor={() => String(Math.random())}
         showsVerticalScrollIndicator={false}
         renderItem={({ item: device }) => (
           <TouchableOpacity

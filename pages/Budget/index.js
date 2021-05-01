@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import React, { useState } from "react"
+import { Text, View, TextInput, TouchableOpacity } from "react-native"
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import store from "../../store";
+import store from "../../store"
 
-// import styles from './styles'
+import styles from './styles'
 
 export default function Budget() {
   const [sockets, setSockets] = useState("");
@@ -27,47 +28,48 @@ export default function Budget() {
   };
 
   return (
-    <View>
-      <Text>Budget Calculator</Text>
-      <Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Send your system specifications to us</Text>
+      <Text style={styles.info}>
         Calculate the total expenses of instaling our monitoring services in
         your home, submit the information and wait contact in your email.
       </Text>
-      <Text>Please type here your name:</Text>
+      <Text style={styles.formLabel}>Please, type your name:</Text>
       <TextInput
-        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        placeholder="name here"
+        style={styles.formInput}
+        placeholder="Name here"
         onChangeText={(text) => inputNameHandler(text)}
         value={name}
       />
-      <Text>Please type here your email:</Text>
+      <Text style={styles.formLabel}>Please, type your email:</Text>
       <TextInput
-        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        placeholder="email here"
+        style={styles.formInput}
+        placeholder="Email here"
         onChangeText={(text) => inputEmailHandler(text)}
         value={email}
       />
-      <Text>Please type here the number of sockets you have in your home:</Text>
+      <Text style={styles.formLabel}>Please, type the number of sockets you have in your home:</Text>
       <TextInput
         keyboardType="numeric"
-        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        placeholder="only number here"
+        style={styles.formInput}
+        placeholder="Only number here"
         onChangeText={(text) => inputSocketsHandler(text)}
         value={sockets}
       />
-      <Text>
-        Please type here the number of devices you want to register in our
+      <Text style={styles.formLabel}>
+        Please, type the number of devices you want to register in our
         monitoring system:
       </Text>
       <TextInput
         keyboardType="numeric"
-        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        placeholder="only number here"
+        style={styles.formInput}
+        placeholder="Only number here"
         onChangeText={(text) => inputDevicesHandler(text)}
         value={devices}
       />
 
       <TouchableOpacity
+        style={styles.formButton}
         onPress={() => {
           if (parseInt(sockets, 10) !== 0 && parseInt(devices, 10) !== 0 && name !== "" && email !== "") {
             store.budgetRegisters.push({
@@ -82,7 +84,8 @@ export default function Budget() {
           }
         }}
       >
-        <Text>Submit</Text>
+        <MaterialCommunityIcons name='comment-question' size={20} />
+        <Text style={styles.formButtonText}> Submit</Text>
       </TouchableOpacity>
       <Text>{span}</Text>
     </View>
