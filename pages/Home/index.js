@@ -60,7 +60,7 @@ export default function Home(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Rooms</Text>
-      <Text>Here you will be able to watch your home's sockets information.</Text>
+      <Text style={styles.text}>Here you will be able to watch your home's sockets information.</Text>
       {/* <Text>{JSON.stringify(rooms)}</Text>
       <Text> </Text>
       <Text>{JSON.stringify(status)}</Text> */}
@@ -77,7 +77,7 @@ export default function Home(props) {
             <MaterialCommunityIcons style={styles.buttonIcon} name='clipboard-check-multiple' size={24} />
             <View>
               <Text style={styles.roomTitle}>{room.name}</Text>
-              <Text>
+              <Text style={styles.text}>
                   Click here to see more...
               </Text>
             </View>

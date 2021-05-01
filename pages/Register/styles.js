@@ -7,6 +7,10 @@ export default StyleSheet.create({
         paddingTop: 12,
     },
 
+    info: {
+        fontSize: 16,
+    },
+
     deviceListContainer: {
         display: 'flex',
         flexDirection: 'row',
@@ -27,12 +31,6 @@ export default StyleSheet.create({
     },
     addButtonIcon: {
         paddingRight: 8,
-    },
-
-    addButtonText: {
-        paddingLeft: 8,
-        fontSize: 16,
-        color: '#0016a8',
     },
 
     registerListTitle: {

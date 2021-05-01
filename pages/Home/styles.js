@@ -12,6 +12,10 @@ export default StyleSheet.create({
         fontSize: 32,
     },
 
+    text: {
+        fontSize: 16,
+    },
+
     roomList: {
         marginTop: 8,
     },

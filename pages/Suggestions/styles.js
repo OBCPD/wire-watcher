@@ -9,6 +9,11 @@ export default StyleSheet.create({
 
   info: {
     marginBottom: 12,
+    fontSize: 16,
+  },
+
+  text1: {
+    fontSize: 16,
   },
   
   button: {
@@ -26,6 +31,6 @@ export default StyleSheet.create({
   },
 
   buttonTitle: {
-    fontSize: 16,
+    fontSize: 20,
   },
 });

@@ -14,4 +14,8 @@ export default StyleSheet.create({
   capitalize: {
     textTransform: 'capitalize',
   },
+
+  text: {
+    fontSize: 16,
+  },
 });

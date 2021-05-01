@@ -14,7 +14,7 @@ export default function Room(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{ room.name }</Text>
-      <Text>Devices installed on { room.name }.</Text>
+      <Text style={styles.text}>Devices installed on { room.name }.</Text>
       <FlatList
         style={styles.deviceList}
         data={room.devices}
@@ -28,7 +28,7 @@ export default function Room(props) {
             <MaterialCommunityIcons style={styles.buttonIcon} name='clipboard-check-multiple' size={24} />
             <View>
               <Text style={styles.deviceTitle}>{device.name}</Text>
-              <Text>Click here to see more...</Text>
+              <Text style={styles.text}>Click here to see more...</Text>
             </View>
             
           </TouchableOpacity>

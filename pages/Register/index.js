@@ -35,7 +35,7 @@ export default function Register(props) {
 
   return (
     <View style={styles.container}>
-      <Text>
+      <Text style={styles.info}>
         Here you will be able to register what electronic devices are commonly
         used in each socket to simulate if a fire due to overcharge may happen.
       </Text>

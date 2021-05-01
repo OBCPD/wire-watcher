@@ -14,11 +14,13 @@ export default StyleSheet.create({
   },
 
   formLabel: {
+    fontSize: 16,
     paddingLeft: 4,
-    marginBottom: 2,
+    marginBottom: 4,
   },
 
   formInput: {
+    fontSize: 16,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#0016a8',

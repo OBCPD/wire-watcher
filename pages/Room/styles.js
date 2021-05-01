@@ -12,6 +12,10 @@ export default StyleSheet.create({
         textTransform: 'capitalize',
         fontSize: 32,
     },
+    
+    text: {
+        fontSize: 16,
+    },
 
     deviceList: {
         marginTop: 8,
