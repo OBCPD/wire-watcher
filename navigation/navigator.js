@@ -5,9 +5,10 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 import { Ionicons } from "@expo/vector-icons";
 
 import Home from "../pages/Home/index";
+import Room from "../pages/Room/index";
+import Device from '../pages/Device/index'
 import Register from "../pages/Register/index";
 import Suggestions from "../pages/Suggestions/index";
-import Room from "../pages/Room/index";
 import AddDevice from "../pages/AddDevice/index";
 import Budget from "../pages/Budget/index";
 
@@ -25,6 +26,7 @@ const HomeStack = createStackNavigator(
   {
     Home: Home,
     Room: Room,
+    Device: Device,
   },
   {
     defaultNavigationOptions: appDefaultNavigationOptions,
