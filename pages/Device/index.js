@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import { LineChart, YAxis, Grid } from "react-native-svg-charts";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import styles from "./styles";
+import { StoreContext } from "../../store-context";
 
 export default function Device(props) {
+  const { newHeat } = useContext(StoreContext);
   const device = props.navigation.getParam("device");
+  const room = props.navigation.getParam("room");
 
   const [heatArray, setHeatArray] = useState(device.heat);
   const [heat, setHeat] = useState("0");
@@ -52,8 +55,9 @@ export default function Device(props) {
       <TouchableOpacity
         style={styles.formButton}
         onPress={() => {
-          let aux = [heatArray, ...parseInt(heat, 10)];
+          let aux = [...heatArray, parseInt(heat, 10)];
           setHeatArray(aux);
+          newHeat(aux, device, room.name);
           console.log(heatArray);
         }}
       >

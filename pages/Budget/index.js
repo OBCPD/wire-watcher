@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import { Text, View, TextInput, TouchableOpacity } from "react-native"
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import React, { useState } from "react";
+import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import store from "../../store"
+import store from "../../store";
 
-import styles from './styles'
+import styles from "./styles";
 
 export default function Budget() {
   const [sockets, setSockets] = useState("");
@@ -48,7 +48,9 @@ export default function Budget() {
         onChangeText={(text) => inputEmailHandler(text)}
         value={email}
       />
-      <Text style={styles.formLabel}>Please, type the number of sockets you have in your home:</Text>
+      <Text style={styles.formLabel}>
+        Please, type the number of sockets you have in your home:
+      </Text>
       <TextInput
         keyboardType="numeric"
         style={styles.formInput}
@@ -71,7 +73,12 @@ export default function Budget() {
       <TouchableOpacity
         style={styles.formButton}
         onPress={() => {
-          if (parseInt(sockets, 10) !== 0 && parseInt(devices, 10) !== 0 && name !== "" && email !== "") {
+          if (
+            parseInt(sockets, 10) !== 0 &&
+            parseInt(devices, 10) !== 0 &&
+            name !== "" &&
+            email !== ""
+          ) {
             store.budgetRegisters.push({
               name: name,
               email: email,
@@ -84,10 +91,10 @@ export default function Budget() {
           }
         }}
       >
-        <MaterialCommunityIcons name='comment-question' size={20} />
+        <MaterialCommunityIcons name="comment-question" size={20} />
         <Text style={styles.formButtonText}> Submit</Text>
       </TouchableOpacity>
-      <Text>{span}</Text>
+      <Text style={{ textAlign: "center", marginTop: 10 }}>{span}</Text>
     </View>
   );
 }
