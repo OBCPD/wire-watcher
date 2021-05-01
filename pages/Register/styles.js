@@ -13,22 +13,28 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
     },
 
+    deviceList: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+    },
+
     addButton: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',  
     },
-
     addButtonIcon: {
         paddingRight: 8,
     },
-    
+
     addButtonText: {
         paddingLeft: 8,
         fontSize: 16,
         color: '#0016a8',
     },
-    
+
     registerListTitle: {
         marginVertical: 8,
         paddingLeft: 12,

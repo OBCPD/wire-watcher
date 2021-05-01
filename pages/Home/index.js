@@ -6,7 +6,6 @@ import styles from './styles.js'
 
 import { StoreContext } from '../../store-context'
 
-
 export default function Home(props) {
   const {rooms, registerDevice} = useContext(StoreContext)
   const [status, setStatus] = useState()

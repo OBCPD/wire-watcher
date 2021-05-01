@@ -1,23 +1,21 @@
-import React, { useContext } from "react";
-import { Text, View, FlatList, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import React, { useContext } from "react"
+import { Text, View, FlatList, TouchableOpacity } from "react-native"
+import { Ionicons } from "@expo/vector-icons"
 
 import styles from "./styles"
 
-import RegisteredDevice from "../../components/RegisteredDevice/index";
+import RegisteredDevice from "../../components/RegisteredDevice/index"
 import { StoreContext } from '../../store-context'
 
 export default function Register(props) {
   const {rooms} = useContext(StoreContext)
   const renderDevices = (data) => {
     return (
-      <View>
         <RegisteredDevice
           name={data.item.name}
           power={data.item.power}
           voltage={data.item.voltage}
         />
-      </View>
     );
   };
 
@@ -26,6 +24,7 @@ export default function Register(props) {
       <View>
         <Text style={styles.deviceListTitle}>{data.item.name}</Text>
         <FlatList
+          style={styles.deviceList}
           data={data.item.devices}
           keyExtractor={() => String(Math.random())}
           renderItem={renderDevices}
